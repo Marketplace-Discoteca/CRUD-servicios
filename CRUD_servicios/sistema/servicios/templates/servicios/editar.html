@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar Servicio {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">EDITAR INFORMACION DE UN SERVICIO</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Servicio</h4>
+      {% include 'servicios/form.html' %}
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de Servicios {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="{% url 'crear' %}"
+            role="button"
+            >AGREGAR SERVICIO</a
+        >
+        
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Servicios</h4>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered" cellspacing="0" cellpadding="8">
+                <thead class="thead-light">
+                    <tr class="text-center">
+                        <th scope="col" class="p-3">ID</th>
+                        <th scope="col" class="p-3">SERVICIO</th>
+                        <th scope="col" class="p-3">CATEGORIA</th>
+                        <th scope="col" class="p-3">SUBCATEGORIA</th>
+                        <th scope="col" class="p-3">PRECIO</th>
+                        <th scope="col" class="p-3">DESCUENTO</th>
+                        <th scope="col" class="p-3">PRECIO ACTUAL</th>
+                        <th scope="col" class="p-3">ESTADO</th>
+                        <th scope="col" class="p-3">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for servicio in servicios %}
+
+                    <tr class="text-center">
+                        <td scope="row" class="p-3">{{servicio.id}}</td>
+                        <td class="p-3">{{servicio.nombre_servicio}}</td>
+                        <td class="p-3">{{servicio.categoria}}</td>
+                        <td class="p-3">{{servicio.subcategoria}}</td>
+                        <td class="p-3">{{servicio.precio_anterior}}</td>
+                        <td class="p-3">{{servicio.descuento}}</td>
+                        <td class="p-3">{{servicio.precio_oferta_actual}}</td>
+                        <td class="p-3">{{servicio.estado}}</td>
+                        <td class="p-3">
+                            <a
+                                name=""
+                                id=""
+                                class="btn btn-info"
+                                href="{% url 'editar' servicio.id %}"
+                                role="button"
+                                >EDITAR</a
+                            >
+                            
+                            <a
+                            name=""
+                            id=""
+                            class="btn btn-danger"
+                            href="{% url 'eliminar' servicio.id %}"
+                            role="button"
+                            >BORRAR</a
+                        ></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+{% endblock %}
